@@ -1,4 +1,8 @@
 import express from "express";
+import users from "./routes/Users.js"
+import posts from "./routes/Posts.js"
+
+
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -17,6 +21,11 @@ app.get("/", async (req, res) => {
     version: "1.0.0",
   });
 });
+
+app.use("/users", users);
+app.use("/posts", posts);
+
+
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}...`);
